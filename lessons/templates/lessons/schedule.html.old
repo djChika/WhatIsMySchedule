@@ -1,0 +1,35 @@
+{% extends "main/main.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for key, value in days %}
+                <div class="bg-light col-sm border rounded m-3">
+                    <div class="bg-secondary text-sm-center mt-3 table-title-container rounded-top text-white">
+                        <p href="/schedule/day/{{ key }}" class="table-title" >{{ value }}</p>
+                    </div>
+                    <table class="table table-responsive-sm text-md-center" style="font-size: 20px;">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Group</th>
+                            <th scope="col">Title</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for l in lessons %}
+                            {% if l.day == key %}
+                                <tr>
+                                    <td>{{ l.time|time:"H:i" }}</td>
+                                    <td>{{ l.group_verbose }}</td>
+                                    <td>{{ l.title }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

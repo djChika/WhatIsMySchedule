@@ -1,0 +1,23 @@
+{% extends "main/main.html" %}
+
+{% block content %}
+    <p class="display-4">{{ lessons.0.day_verbose }}</p>
+    <table class="table table-hover table-responsive">
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>Group</th>
+            <th>Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for l in lessons %}
+            <tr>
+                <td>{{ l.time|time:"H:i" }}</td>
+                <td>{{ l.group_verbose }}</td>
+                <td>{{ l.title }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

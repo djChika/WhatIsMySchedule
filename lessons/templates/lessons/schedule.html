@@ -1,0 +1,18 @@
+{% extends "main/main.html" %}
+
+{% block content %}
+    {% for s in schedule %}
+        <table class="table table-responsive-sm text-md-center">
+            <tr>
+                <td>{{ s.day_of_week }}</td>
+                <td>{{ s.week_type }}</td>
+                <td>{{ s.lesson }}</td>
+                <td>{{ s.group }}</td>
+                <td>{{ s.discipline }}</td>
+                <td>{{ s.lesson_type }}</td>
+                <td>{{ s.audience }}</td>
+            </tr>
+        </table>
+        <br>
+    {% endfor %}
+{% endblock %}
